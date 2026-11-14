@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://n2o5bnpltbf3"]
+
+[ext_resource type="Texture2D" uid="uid://dqup4vgehd8gs" path="res://assets/sprites/box_c00l.png" id="1_ih7ul"]
+
+[node name="Hotbar" type="CanvasLayer" unique_id=1007600010]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=315235954]
+position = Vector2(701.00006, 740)
+scale = Vector2(5.04, 1.22)
+texture = ExtResource("1_ih7ul")

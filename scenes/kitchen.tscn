@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://6cdxqflj5l0g"]
+
+[ext_resource type="Script" uid="uid://civsheqlo6m2s" path="res://scenes/game_controller.gd" id="1_g3o0j"]
+[ext_resource type="Texture2D" uid="uid://cw6bnx24hb85l" path="res://assets/sprites/stage1_kitchen.webp" id="2_58u3k"]
+[ext_resource type="Script" uid="uid://bev128lw0maya" path="res://scripts/BackgroundMover.gd" id="2_g3o0j"]
+[ext_resource type="Script" uid="uid://dpm74sijimwg5" path="res://scripts/player_movement.gd" id="3_58u3k"]
+[ext_resource type="Texture2D" uid="uid://cat4js7nkriyy" path="res://assets/sprites/player.png" id="4_ibrlr"]
+[ext_resource type="Texture2D" uid="uid://dqup4vgehd8gs" path="res://assets/sprites/box_c00l.png" id="5_mwmjw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rno78"]
+size = Vector2(14.946106, 4.819275)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rno78"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ibrlr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvv8d"]
+size = Vector2(912, 667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(101, 347)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(161.5, 1079.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(1921, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(1921, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(369, 486)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
+size = Vector2(94.5, 158)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8m1yp"]
+size = Vector2(148, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c57u"]
+size = Vector2(199, 101.5)
+
+[node name="Main" type="Node2D" unique_id=484521066]
+script = ExtResource("1_g3o0j")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2119227231]
+texture = ExtResource("2_58u3k")
+script = ExtResource("2_g3o0j")
+metadata/_edit_lock_ = true
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2114409906]
+position = Vector2(-126, 258)
+scale = Vector2(5.21875, 5.1875)
+script = ExtResource("3_58u3k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1122987853]
+position = Vector2(-0.47904587, 11.469879)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_rno78")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Player" unique_id=732246344]
+z_index = 5
+scale = Vector2(1, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_rno78")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=372597706]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=573388357]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=433432228]
+position = Vector2(456, -97.5)
+shape = SubResource("RectangleShape2D_qvv8d")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1682263238]
+position = Vector2(907.5, 363.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=1582341666]
+position = Vector2(-882.75, -11.25)
+shape = SubResource("RectangleShape2D_lquwl")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=390731891]
+position = Vector2(-2.5, 477)
+shape = SubResource("RectangleShape2D_7mycd")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls" unique_id=105513558]
+position = Vector2(4, -449)
+shape = SubResource("RectangleShape2D_272bh")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls" unique_id=943999871]
+position = Vector2(-96.5, -123)
+shape = SubResource("RectangleShape2D_5vw27")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls" unique_id=1569007389]
+position = Vector2(-218.25, 156)
+shape = SubResource("RectangleShape2D_kek77")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=1849850337]
+polygon = PackedVector2Array(166, 264, 520, 305, 531, 270, 531, 143, 519, 137, 168, 110)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls" unique_id=757428228]
+position = Vector2(295, 178)
+polygon = PackedVector2Array(236, 94, 563, 213, 566, 51, 236, -46)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls" unique_id=1631555674]
+polygon = PackedVector2Array(-329, 366, -269, 237, -260, -339, -278, -344, -384, 31, -430, 42, -441, 365, -392, 378)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls" unique_id=707664100]
+polygon = PackedVector2Array(-798, 267, -459, -359, -811, -351)
+metadata/_edit_lock_ = true
+
+[node name="EnterKitchen" type="Area2D" parent="." unique_id=1768501479]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterKitchen" unique_id=782344818]
+position = Vector2(-77, 99)
+shape = SubResource("RectangleShape2D_8m1yp")
+
+[node name="EnterUpstairs" type="Area2D" parent="." unique_id=1685886480]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterUpstairs" unique_id=1835586055]
+position = Vector2(-385.5, -332.25)
+shape = SubResource("RectangleShape2D_4c57u")
+
+[node name="Locations" type="Node2D" parent="." unique_id=1817025039]
+
+[node name="FromKitchen" type="Node2D" parent="Locations" unique_id=858800450]
+position = Vector2(-91, 252)
+
+[node name="FromUpstairs" type="Node2D" parent="Locations" unique_id=333338500]
+position = Vector2(-411, -233)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140539833]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1266475936]
+position = Vector2(701.00006, 740)
+scale = Vector2(5.04, 1.22)
+texture = ExtResource("5_mwmjw")
