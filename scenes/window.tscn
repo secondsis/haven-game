@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cldrhu0lynrjm"]
 
 [ext_resource type="Script" uid="uid://c8lih77qgccy7" path="res://scenes/window.gd" id="1_qnju7"]
-[ext_resource type="Texture2D" uid="uid://bl5e6dnyl6mmq" path="res://assets/sprites/stage1_kitchen.png" id="2_qnju7"]
+[ext_resource type="Texture2D" uid="uid://dour7ky4r3jty" path="res://assets/sprites/moon_normal.webp" id="2_qnju7"]
 [ext_resource type="Script" uid="uid://bev128lw0maya" path="res://scripts/BackgroundMover.gd" id="3_syahi"]
 [ext_resource type="PackedScene" uid="uid://n2o5bnpltbf3" path="res://prefabs/hotbar.tscn" id="4_ot01e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rno78"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Window" type="Node2D" unique_id=484521066]
 script = ExtResource("1_qnju7")
@@ -22,10 +25,26 @@ metadata/_edit_lock_ = true
 
 [node name="BackToKitchen" type="Button" parent="Hotbar" unique_id=436812039]
 offset_left = 675.0
-offset_top = 540.0
+offset_top = 675.0
 offset_right = 925.0
-offset_bottom = 615.0
+offset_bottom = 750.0
 theme_override_font_sizes/font_size = 32
 text = "BACK"
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Hotbar" unique_id=700112519]
+offset_left = 715.0
+offset_top = 638.0
+offset_right = 890.0
+offset_bottom = 794.0
+text = "don't click the moon..."
+
+[node name="Button" type="Button" parent="." unique_id=532600836]
+offset_left = -347.0
+offset_top = -289.0
+offset_right = -89.0
+offset_bottom = -22.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rno78")
+flat = true
+
 [connection signal="button_up" from="Hotbar/BackToKitchen" to="." method="_on_back_to_kitchen_button_up"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

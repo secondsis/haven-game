@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ftfj7wfgcuvs"]
+
+[ext_resource type="Script" uid="uid://pqbc3peacpet" path="res://scenes/intro_dialogue.gd" id="1_fiwxd"]
+[ext_resource type="FontFile" uid="uid://4b1vjpx38n5v" path="res://scenes/Karantina-Regular.ttf" id="1_tgans"]
+
+[node name="Introduction" type="Node2D" unique_id=1421191235]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=966775381]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=632140666]
+offset_left = 400.0
+offset_top = 675.0
+offset_right = 1200.0
+offset_bottom = 875.0
+theme_override_fonts/normal_font = ExtResource("1_tgans")
+theme_override_font_sizes/normal_font_size = 64
+text = "it's been a long time..."
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_fiwxd")

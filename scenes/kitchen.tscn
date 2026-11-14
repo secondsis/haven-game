@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://6cdxqflj5l0g"]
 
-[ext_resource type="Script" uid="uid://elkh2u0k2chm" path="res://scripts/main.gd" id="1_g3o0j"]
+[ext_resource type="Script" uid="uid://ogx8aqg2j8qr" path="res://scenes/kitchen.gd" id="1_g3o0j"]
 [ext_resource type="Texture2D" uid="uid://dkagwaevv2b04" path="res://assets/sprites/stage2_kitchen.webp" id="2_58u3k"]
 [ext_resource type="Script" uid="uid://bev128lw0maya" path="res://scripts/BackgroundMover.gd" id="2_g3o0j"]
 [ext_resource type="PackedScene" uid="uid://n2o5bnpltbf3" path="res://prefabs/hotbar.tscn" id="4_bems3"]
 [ext_resource type="Texture2D" uid="uid://c5t65icstnhcr" path="res://assets/sprites/aniation/Untitled32_20261114134814.png" id="5_v3ycp"]
 [ext_resource type="Script" uid="uid://cualjmr3yx1ek" path="res://scripts/kitchen_start.gd" id="6_g3o0j"]
+[ext_resource type="Texture2D" uid="uid://c3s4tq08mdssb" path="res://assets/sprites/sparkle.png" id="7_58u3k"]
 
 [node name="Kitchen" type="Node2D" unique_id=484521066]
 script = ExtResource("1_g3o0j")
@@ -20,7 +21,7 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 metadata/_edit_lock_ = true
 
-[node name="Button" type="Button" parent="." unique_id=2029036905]
+[node name="ViewWindowButton" type="Button" parent="." unique_id=2029036905]
 offset_left = -51.0
 offset_top = -281.0
 offset_right = 112.0
@@ -30,9 +31,9 @@ offset_bottom = 84.0
 
 [node name="BackToMain" type="Button" parent="Hotbar" unique_id=2059530602]
 offset_left = 675.0
-offset_top = 540.0
+offset_top = 675.0
 offset_right = 925.0
-offset_bottom = 615.0
+offset_bottom = 750.0
 theme_override_font_sizes/font_size = 32
 text = "BACK"
 
@@ -44,4 +45,26 @@ texture = ExtResource("5_v3ycp")
 [node name="KitchenStart2" type="Node2D" parent="." unique_id=1698060061]
 script = ExtResource("6_g3o0j")
 
+[node name="Sparkle" type="Sprite2D" parent="." unique_id=1576225346]
+position = Vector2(614, 297)
+scale = Vector2(0.023365365, 0.023365384)
+texture = ExtResource("7_58u3k")
+
+[node name="pickupkey" type="Button" parent="Sparkle" unique_id=1781621998]
+offset_left = -213.99194
+offset_top = -171.19342
+offset_right = 213.99243
+offset_bottom = 213.99213
+flat = true
+
+[node name="Question" type="RichTextLabel" parent="." unique_id=1544074219]
+visible = false
+offset_left = 611.0
+offset_top = 256.0
+offset_right = 651.0
+offset_bottom = 296.0
+text = "?"
+
+[connection signal="button_up" from="ViewWindowButton" to="." method="_on_view_window_button_button_up"]
 [connection signal="button_up" from="Hotbar/BackToMain" to="." method="_on_back_to_main_button_up"]
+[connection signal="button_up" from="Sparkle/pickupkey" to="." method="_on_pickupkey_button_up"]

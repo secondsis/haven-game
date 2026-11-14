@@ -4,6 +4,8 @@ var current_stage = 1
 
 var last_teleport = ""
 
+var has_key = false
+
 func change_scene(sceneName: String):
 	get_tree().change_scene_to_file("res://scenes/" + sceneName + ".tscn")
 
@@ -15,3 +17,5 @@ func set_scene_upstairs():
 
 func set_scene_main():
 	change_scene("main")
+func set_scene_window():
+	change_scene("window")

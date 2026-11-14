@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cu2rtbep15s8p"]
+
+[ext_resource type="Script" uid="uid://c8lih77qgccy7" path="res://scenes/window.gd" id="1_dq4sg"]
+[ext_resource type="Texture2D" uid="uid://b445p7ksxq12h" path="res://assets/sprites/ending2.webp" id="2_dq4sg"]
+[ext_resource type="Script" uid="uid://b8nnl6drbac5s" path="res://scenes/endtodialogue.gd" id="3_gwoto"]
+
+[node name="end" type="Node2D" unique_id=484521066]
+script = ExtResource("1_dq4sg")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2119227231]
+unique_name_in_owner = true
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_dq4sg")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=372597706]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=905846113]
+script = ExtResource("3_gwoto")

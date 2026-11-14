@@ -5,8 +5,11 @@
 [ext_resource type="Script" uid="uid://bev128lw0maya" path="res://scripts/BackgroundMover.gd" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bt36s7pr016yu" path="res://prefabs/player.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://n2o5bnpltbf3" path="res://prefabs/hotbar.tscn" id="4_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bpnlko3xiwlu0" path="res://assets/sprites/textbubble.webp" id="5_85g3d"]
 [ext_resource type="Script" uid="uid://bbdt58xduupsy" path="res://scripts/location_setter.gd" id="5_tefeu"]
+[ext_resource type="FontFile" uid="uid://4b1vjpx38n5v" path="res://scenes/Karantina-Regular.ttf" id="6_choun"]
 [ext_resource type="Script" uid="uid://cnc6frkbkmeo7" path="res://scenes/main_start.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://c4x0yon6se0n2" path="res://scenes/tempchat.gd" id="9_choun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvv8d"]
 size = Vector2(912, 667)
@@ -33,7 +36,7 @@ size = Vector2(94.5, 158)
 size = Vector2(148, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c57u"]
-size = Vector2(199, 101.5)
+size = Vector2(199, 252.375)
 
 [node name="Main" type="Node2D" unique_id=484521066]
 script = ExtResource("1_tefeu")
@@ -47,6 +50,26 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." unique_id=1899148414 groups=["player"] instance=ExtResource("3_jyhfs")]
 unique_name_in_owner = true
 position = Vector2(-126, 258)
+
+[node name="dialogue" type="Node2D" parent="Player" unique_id=406759637]
+unique_name_in_owner = true
+visible = false
+
+[node name="Textbubble" type="Sprite2D" parent="Player/dialogue" unique_id=1418054183]
+position = Vector2(30.560257, -23.024094)
+scale = Vector2(0.07357504, 0.07756024)
+texture = ExtResource("5_85g3d")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/dialogue" unique_id=180628151]
+offset_left = 17.14709
+offset_top = -34.783134
+offset_right = 660.9794
+offset_bottom = 416.30115
+scale = Vector2(0.05, 0.05)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_choun")
+theme_override_font_sizes/normal_font_size = 64
+text = "Luna loved to look at the moon. I think the kitchen has a window?"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=372597706]
 unique_name_in_owner = true
@@ -119,11 +142,17 @@ shape = SubResource("RectangleShape2D_8m1yp")
 position = Vector2(-385.5, -332.25)
 shape = SubResource("RectangleShape2D_4c57u")
 
+[node name="EXITDOOR" type="Area2D" parent="." unique_id=551968910]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EXITDOOR" unique_id=1484026215]
+position = Vector2(754, 246.1875)
+shape = SubResource("RectangleShape2D_4c57u")
+
 [node name="Locations" type="Node2D" parent="." unique_id=1817025039]
 script = ExtResource("5_tefeu")
 
 [node name="FromKitchen" type="Node2D" parent="Locations" unique_id=858800450]
-position = Vector2(-91, 252)
+position = Vector2(-82, 183)
 
 [node name="FromUpstairs" type="Node2D" parent="Locations" unique_id=333338500]
 position = Vector2(-411, -233)
@@ -133,7 +162,16 @@ position = Vector2(-411, -233)
 [node name="MainStart" type="Node2D" parent="." unique_id=262921644]
 script = ExtResource("7_o6xl0")
 
+[node name="Button" type="Button" parent="." unique_id=1068062702]
+offset_left = 297.0
+offset_top = -28.0
+offset_right = 382.0
+offset_bottom = 98.0
+script = ExtResource("9_choun")
+
 [connection signal="body_entered" from="EnterKitchen" to="." method="_on_enter_kitchen_body_entered"]
 [connection signal="body_entered" from="EnterUpstairs" to="." method="_on_enter_upstairs_body_entered"]
+[connection signal="body_entered" from="EXITDOOR" to="." method="_on_exitdoor_body_entered"]
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]
 
 [editable path="Player"]

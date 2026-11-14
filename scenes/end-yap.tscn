@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://3l5722w76na3"]
+
+[ext_resource type="FontFile" uid="uid://4b1vjpx38n5v" path="res://scenes/Karantina-Regular.ttf" id="1_331y4"]
+[ext_resource type="Script" uid="uid://dkku277kem1e0" path="res://scenes/dialogueyap1.gd" id="2_331y4"]
+
+[node name="endyap1" type="Node2D" unique_id=1421191235]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=966775381]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=632140666]
+offset_top = 675.0
+offset_right = 1600.0
+offset_bottom = 875.0
+theme_override_fonts/normal_font = ExtResource("1_331y4")
+theme_override_font_sizes/normal_font_size = 48
+text = "I now remember... I was never in a house."
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_331y4")

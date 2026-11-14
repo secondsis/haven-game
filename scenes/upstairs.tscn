@@ -27,7 +27,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1899148414 groups=["player"] instance=ExtResource("4_5ownu")]
 unique_name_in_owner = true
-position = Vector2(442.00006, 286)
+position = Vector2(-137.99994, 287)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=372597706]
 unique_name_in_owner = true
