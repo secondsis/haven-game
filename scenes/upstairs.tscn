@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://b2mhiqevqu3pe"]
+
+[ext_resource type="Script" uid="uid://w60oe0wxy8n0" path="res://scenes/upstairs.gd" id="1_nqn47"]
+[ext_resource type="Texture2D" uid="uid://cqjtjjyqmwj2u" path="res://assets/sprites/stage1_upstairs.webp" id="2_nqn47"]
+[ext_resource type="Script" uid="uid://bev128lw0maya" path="res://scripts/BackgroundMover.gd" id="3_ubpyk"]
+[ext_resource type="PackedScene" uid="uid://bt36s7pr016yu" path="res://prefabs/player.tscn" id="4_5ownu"]
+[ext_resource type="Script" uid="uid://tqv1chjn7apr" path="res://scenes/upstairs_start.gd" id="6_6hmx5"]
+[ext_resource type="PackedScene" uid="uid://n2o5bnpltbf3" path="res://prefabs/hotbar.tscn" id="6_q1slb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rno78"]
+size = Vector2(728.75, 308)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqn47"]
+size = Vector2(1730.375, 308)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8m1yp"]
+size = Vector2(608, 56.5)
+
+[node name="Upstairs" type="Node2D" unique_id=484521066]
+script = ExtResource("1_nqn47")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2119227231]
+unique_name_in_owner = true
+texture = ExtResource("2_nqn47")
+script = ExtResource("3_ubpyk")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=1899148414 groups=["player"] instance=ExtResource("4_5ownu")]
+unique_name_in_owner = true
+position = Vector2(442.00006, 286)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=372597706]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=573388357]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1457632158]
+position = Vector2(173.625, 132)
+shape = SubResource("RectangleShape2D_rno78")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1447661235]
+position = Vector2(103.8125, 586)
+shape = SubResource("RectangleShape2D_nqn47")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=321237479]
+polygon = PackedVector2Array(-191, 294, -199, 349, -584, 455, -700, 368, -185, 153)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls" unique_id=1951779854]
+polygon = PackedVector2Array(531, 271, 655, 390, 650, 440, 707, 441, 910, 440, 859, -32, 444, -38)
+
+[node name="ExitUpstairs" type="Area2D" parent="." unique_id=1768501479]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitUpstairs" unique_id=782344818]
+position = Vector2(353, 415.25)
+shape = SubResource("RectangleShape2D_8m1yp")
+
+[node name="Hotbar" parent="." unique_id=1007600010 instance=ExtResource("6_q1slb")]
+
+[node name="UpstairsStart" type="Node2D" parent="." unique_id=1350043614]
+script = ExtResource("6_6hmx5")
+
+[connection signal="body_entered" from="ExitUpstairs" to="." method="_on_exit_upstairs_body_entered"]
+
+[editable path="Player"]

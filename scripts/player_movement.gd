@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 var target_velocity = Vector2.ZERO
 
-var target_position : Vector2 = self.position
+var target_position : Vector2 = position
 
 func _ready() -> void:
 	target_position = position
@@ -25,10 +25,13 @@ func _physics_process(delta):
 	var direction = Vector2.ZERO
 	
 	if position.distance_to(target_position) > 10.0:
+		if not $PlayerSprite.is_playing():
+			$PlayerSprite.play("default")
 		direction = position.direction_to(target_position)
 		velocity = direction * speed
 		move_and_slide()
 	else:
+		$PlayerSprite.stop()
 		velocity = Vector2.ZERO
 	
 	# if in the middle of running and hit a wall

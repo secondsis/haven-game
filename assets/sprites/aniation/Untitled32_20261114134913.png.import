@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw6bnx24hb85l"
-path="res://.godot/imported/stage1_kitchen.webp-f269f72b771f52f3e7125f66d90cc031.ctex"
+uid="uid://bgavlodm8yifu"
+path="res://.godot/imported/Untitled32_20261114134913.png-33f63e8602c9cf03d50eec29d76bffbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/stage1_kitchen.webp"
-dest_files=["res://.godot/imported/stage1_kitchen.webp-f269f72b771f52f3e7125f66d90cc031.ctex"]
+source_file="res://assets/sprites/aniation/Untitled32_20261114134913.png"
+dest_files=["res://.godot/imported/Untitled32_20261114134913.png-33f63e8602c9cf03d50eec29d76bffbd.ctex"]
 
 [params]
 
